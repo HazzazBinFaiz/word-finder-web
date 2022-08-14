@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex flex-col flex-wrap'>
-      <Header />
+      <Header className='w-full bg-slate-700' />
       <div className='w-full max-w-5xl mx-auto flex flex-wrap flex-col flex-grow p-4 justify-start'>
         <div className="w-full flex flex-wrap">
           <div className="w-full rounded shadow h-[80vh] overflow-auto">

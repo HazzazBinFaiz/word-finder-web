@@ -1,7 +1,12 @@
-function Header() {
+
+type HeaderProps = {
+    className: string
+}
+
+function Header(props: HeaderProps) {
 
     return (
-        <div className="w-full bg-slate-700">
+        <div className={props.className}>
             <div className="w-full max-w-5xl mx-auto flex justify-between">
             <div className="flex flex-grow items-center">
                 <div className="text-xl font-semibold text-white p-2">
