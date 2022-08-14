@@ -8,7 +8,7 @@ function App() {
   const [result, setResult] = useState<string[]>([])
 
   const handleTermChange = (event: SyntheticEvent<HTMLInputElement>) => {
-    setTerm(event.currentTarget.value.replace(/[^a-zA-Z\-_]/g, '').toLowerCase())
+    setTerm(event.currentTarget.value.replace(/[^a-zA-Z\-]/g, '').toLowerCase())
   }
 
   const reset = () => {
@@ -27,19 +27,26 @@ function App() {
 
     let searchTerm = term
       .replaceAll('-', '([a-z]*)')
-      .replaceAll('_', '([a-z])')
-    let pattern = new RegExp(searchTerm)
+    let pattern = new RegExp('^'+searchTerm)
     setResult(
       words.map(word => word.match(pattern))
-        .filter(notEmpty)
+        .filter((match : RegExpMatchArray | null) : match is RegExpMatchArray  => {
+          return match !== null && match !== undefined;
+        })
+        .filter(match => {
+          return match.input !== undefined && match.input.length
+        })
+        .slice(0, 20)
+        .sort((a, b) => {
+          return b.join().length - a.join().length
+        })
         .map((match) => {
-          let original = match[0]
+          let original = match.input ?? ''
+          let matched = match[0]
           for (let i = 1; i < match.length; i++) {
-            original = original.replace(match[i], '<span class="text-green-600">' + match[i] + '</span>')
+            matched = matched.replace(match[i], '<span class="text-green-600">' + match[i] + '</span>')
           }
-          return original
-        }).sort((a, b) => {
-          return b.length - a.length
+          return original.replace(match[0], '<span class="text-black font-semibold">' + matched + '</span>')
         })
     )
   }, [term])
@@ -47,11 +54,11 @@ function App() {
   return (
     <div className='min-h-screen flex flex-col flex-wrap'>
       <Header />
-      <div className='flex flex-wrap flex-col flex-grow p-4 justify-start'>
+      <div className='w-full max-w-5xl mx-auto flex flex-wrap flex-col flex-grow p-4 justify-start'>
         <div className="w-full flex flex-wrap">
           <div className="w-full rounded shadow h-[80vh] overflow-auto">
             {result.map(item => (
-              <div className="w-full p-2 text-lg text-slate-700 text-center border-b" dangerouslySetInnerHTML={{__html:item}}></div>
+              <div className="w-full p-2 text-lg text-slate-600 text-center border-b" dangerouslySetInnerHTML={{__html:item}}></div>
             ))}
           </div>
         </div>
