@@ -1,9 +1,8 @@
-
+import { HasClassName } from "./types";
 
 type ResultPanelProps = {
-    className: string,
     result: string[]
-}
+} & HasClassName
 
 
 function ResultPanel(props: ResultPanelProps) {

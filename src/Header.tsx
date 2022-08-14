@@ -1,7 +1,6 @@
+import { HasClassName } from "./types"
 
-type HeaderProps = {
-    className: string
-}
+type HeaderProps = HasClassName
 
 function Header(props: HeaderProps) {
 

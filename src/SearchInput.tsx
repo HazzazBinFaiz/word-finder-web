@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction, SyntheticEvent } from "react";
+import { HasClassName } from "./types";
 
 
 type SearchInputProps = {
     term: string
     setTerm: Dispatch<SetStateAction<string>>
-    className: string
-}
+} & HasClassName
 
 function SearchInput(props : SearchInputProps) {
 
