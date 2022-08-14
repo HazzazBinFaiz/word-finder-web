@@ -1,8 +1,8 @@
-# example
+# Word finder
 
-Example app
+Find english word with least knonwn character. 
 
-# usage
+# contributing
 
 Install required dependencies by running
 ```sh
