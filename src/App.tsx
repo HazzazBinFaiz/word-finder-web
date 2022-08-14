@@ -49,9 +49,9 @@ function App() {
       <Header />
       <div className='flex flex-wrap flex-col flex-grow p-4 justify-start'>
         <div className="w-full flex flex-wrap">
-          <div className="w-full rounded shadow">
+          <div className="w-full rounded shadow h-[80vh] overflow-auto">
             {result.map(item => (
-              <div className="w-full p-2 text-lg text-slate-700" dangerouslySetInnerHTML={{__html:item}}></div>
+              <div className="w-full p-2 text-lg text-slate-700 text-center border-b" dangerouslySetInnerHTML={{__html:item}}></div>
             ))}
           </div>
         </div>
