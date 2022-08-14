@@ -42,12 +42,10 @@ function App() {
   }, [term])
 
   return (
-    <div className='min-h-screen flex flex-col flex-wrap'>
+    <div className='h-screen flex flex-col'>
       <Header className='w-full bg-slate-700' />
-      <div className='w-full max-w-5xl mx-auto flex flex-wrap flex-col flex-grow p-4 justify-start'>
-        <ResultPanel className='w-full flex flex-wrap' result={result} />
-        <SearchInput className='w-full relative self-center' term={term} setTerm={setTerm}/>
-      </div>
+      <ResultPanel className='w-full max-w-5xl mx-auto flex-grow p-4 overflow-auto' result={result} />
+      <SearchInput className='w-full max-w-5xl mx-auto p-4' term={term} setTerm={setTerm}/>
     </div>
   )
 }
