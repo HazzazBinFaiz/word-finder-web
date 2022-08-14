@@ -1,5 +1,6 @@
 import { SyntheticEvent, useEffect, useState } from 'react'
 import Header from './Header'
+import ResultPanel from './ResultPanel'
 import SearchInput from './SearchInput'
 import words from './words.json'
 
@@ -44,13 +45,7 @@ function App() {
     <div className='min-h-screen flex flex-col flex-wrap'>
       <Header className='w-full bg-slate-700' />
       <div className='w-full max-w-5xl mx-auto flex flex-wrap flex-col flex-grow p-4 justify-start'>
-        <div className="w-full flex flex-wrap">
-          <div className="w-full rounded shadow h-[80vh] overflow-auto">
-            {result.map(item => (
-              <div className="w-full p-2 text-lg text-slate-600 text-center border-b" dangerouslySetInnerHTML={{__html:item}}></div>
-            ))}
-          </div>
-        </div>
+        <ResultPanel className='w-full flex flex-wrap' result={result} />
         <SearchInput className='w-full relative self-center' term={term} setTerm={setTerm}/>
       </div>
     </div>
