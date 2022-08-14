@@ -2,6 +2,7 @@
 
 Find english word with least knonwn character. 
 
+![Vite build test](https://github.com/HazzazBinFaiz/word-finder-web/actions/workflows/yarn.yml/badge.svg)
 
 # contributing
 
