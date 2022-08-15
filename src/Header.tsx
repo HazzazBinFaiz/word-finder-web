@@ -8,7 +8,7 @@ type HeaderProps = {
 
 function Header(props: HeaderProps) {
 
-    const [searching, setSearching] = useState(true)
+    const [searching, setSearching] = useState(false)
     const inputRef = createRef<HTMLInputElement>()
     const wrapperRef = createRef<HTMLDivElement>()
 
