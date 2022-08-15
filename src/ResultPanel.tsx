@@ -53,9 +53,11 @@ function ResultPanel(props: ResultPanelProps) {
 
     return (
         <div className={props.className}>
+            <div className="w-full flex flex-wrap justify-center">
             {result.map(item => (
-                <div className="w-full p-2 text-lg text-slate-600 text-center border-t border-x last:border-b" dangerouslySetInnerHTML={{ __html: item }}></div>
+                <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border" dangerouslySetInnerHTML={{ __html: item }}></div>
             ))}
+            </div>
         </div>
     )
 }
