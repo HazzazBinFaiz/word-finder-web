@@ -9,9 +9,8 @@ function App() {
 
   return (
     <div className='h-screen flex flex-col'>
-      <Header className='w-full bg-slate-700' />
+      <Header className='w-full bg-slate-700' term={term} setTerm={setTerm}/>
       <ResultPanel className='w-full max-w-5xl mx-auto flex-grow p-4 overflow-auto' term={term} />
-      <SearchInput className='w-full max-w-5xl mx-auto p-4' term={term} setTerm={setTerm}/>
     </div>
   )
 }
