@@ -1,6 +1,6 @@
 # Word finder
 
-Find english word with least knonwn character. 
+Find English word with least known character. 
 
 ![Vite build test](https://github.com/HazzazBinFaiz/word-finder-web/actions/workflows/yarn.yml/badge.svg)
 
