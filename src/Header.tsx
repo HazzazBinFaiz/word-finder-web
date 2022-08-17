@@ -18,7 +18,7 @@ function Header(props: HeaderProps) {
     }
 
     const handleInputChange = (event: SyntheticEvent<HTMLInputElement>) => {
-        props.setTerm(event.currentTarget.value.toLowerCase())
+        props.setTerm(event.currentTarget.value.toLowerCase().replace(/[^a-z\-]/g, ''))
     }
 
     const insertDash = () => {
