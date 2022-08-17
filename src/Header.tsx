@@ -51,7 +51,7 @@ function Header(props: HeaderProps) {
 
     return (
         <div className={props.className}>
-            <div className="w-full max-w-5xl mx-auto flex justify-between">
+            <div className="w-full max-w-5xl mx-auto flex justify-between p-2">
                 <div className={`flex-grow items-center ${searching ? 'hidden' : 'flex'}`}>
                     <div className="text-xl font-semibold text-white p-2">
                         Word Finder
