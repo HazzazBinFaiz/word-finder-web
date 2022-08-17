@@ -30,6 +30,12 @@ function Header(props: HeaderProps) {
     }
 
     useEffect(() => {
+        if (searching) {
+            inputRef.current?.focus()
+        }
+    }, [searching])
+
+    useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (wrapperRef && wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
                 setSearching(false)
