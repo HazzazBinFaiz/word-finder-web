@@ -18,7 +18,7 @@ function Header(props: HeaderProps) {
     }
 
     const handleInputChange = (event: SyntheticEvent<HTMLInputElement>) => {
-        props.setTerm(event.currentTarget.value)
+        props.setTerm(event.currentTarget.value.toLowerCase())
     }
 
     const insertDash = () => {
@@ -69,7 +69,7 @@ function Header(props: HeaderProps) {
                     <div className="w-full relative" ref={wrapperRef}>
                         <input type="text" value={props.term} onFocus={() => setSearching(true)} onChange={handleInputChange} ref={inputRef} className="w-full border-2 border-slate-500 p-1 text-lg rounded bg-transparent text-white focus:outline-none" />
                         <div className={`absolute top-0 right-0 bottom-0 p-2 flex justify-center items-center cursor-pointer ${props.term.length ? '' : 'hidden'}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-slate-200" onClick={insertDash} viewBox="0 0 20 20" fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-4 text-slate-200" onClick={insertDash} viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clipRule="evenodd" />
                             </svg>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-400" onClick={reset} viewBox="0 0 20 20" fill="currentColor">
