@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './Header'
 import ResultPanel from './ResultPanel'
 import SearchInput from './SearchInput'
@@ -6,6 +6,10 @@ import SearchInput from './SearchInput'
 function App() {
 
   const [term, setTerm] = useState('')
+
+  useEffect(() => {
+    document.getElementById('loading')?.remove()
+  }, []);
 
   return (
     <div className='h-screen flex flex-col'>
