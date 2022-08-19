@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HomePageIllustration from "./HomePageIllustration";
 import { HasClassName } from "./types";
 import wordsMap from './words.json'
 
@@ -14,7 +15,7 @@ type MatchResult = {
 }
 
 
-const rejectNullMatch = (match: RegExpMatchArray | null) : match is RegExpMatchArray => {
+const rejectNullMatch = (match: RegExpMatchArray | null): match is RegExpMatchArray => {
     return match !== null;
 }
 
@@ -22,7 +23,7 @@ type RegExpMatchArrayWithInput = RegExpMatchArray & {
     input: string
 }
 
-const rejectBlankMatch = (match: RegExpMatchArray) : match is RegExpMatchArrayWithInput => {
+const rejectBlankMatch = (match: RegExpMatchArray): match is RegExpMatchArrayWithInput => {
     return (match.input ?? '').length > 0
 }
 
@@ -64,12 +65,19 @@ function ResultPanel(props: ResultPanelProps) {
     return (
         <div className={props.className}>
             <div className="w-full flex flex-wrap justify-center">
-            {result.map(item => (
-                <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border">
-                    <div className="w-full text-xl" dangerouslySetInnerHTML={{ __html: item.html }}></div>
-                    <div className="w-full text-sm text-slate-500">{item.match.input != undefined ? (wordsMap[item.match.input as keyof typeof wordsMap] ?? '') : ''}</div>
-                </div>
-            ))}
+                {result.map(item => (
+                    <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border">
+                        <div className="w-full text-xl" dangerouslySetInnerHTML={{ __html: item.html }}></div>
+                        <div className="w-full text-sm text-slate-500">{item.match.input != undefined ? (wordsMap[item.match.input as keyof typeof wordsMap] ?? '') : ''}</div>
+                    </div>
+                ))}
+                {props.term.length === 0 && (
+                    <div className="w-full flex flex-col items-center opacity-60">
+                        <HomePageIllustration className="w-full h-[30rem] mt-32" />
+                        <div className="text-4xl mt-12 text-slate-700 font-semibold">Search to get result</div>
+                    </div>
+                )
+            }
             </div>
         </div>
     )
