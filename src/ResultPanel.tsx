@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import { HasClassName } from "./types";
-import words from './words.json'
+import wordsMap from './words.json'
+
+const words = Object.keys(wordsMap)
 
 type ResultPanelProps = {
     term: string
 } & HasClassName
+
+type MatchResult = {
+    html: string,
+    match: RegExpMatchArray
+}
 
 
 const rejectNullMatch = (match: RegExpMatchArray | null) : match is RegExpMatchArray => {
@@ -21,7 +28,7 @@ const rejectBlankMatch = (match: RegExpMatchArray) : match is RegExpMatchArrayWi
 
 function ResultPanel(props: ResultPanelProps) {
 
-    const [result, setResult] = useState<string[]>([])
+    const [result, setResult] = useState<MatchResult[]>([])
 
     useEffect(() => {
         if (props.term === '') {
@@ -46,7 +53,10 @@ function ResultPanel(props: ResultPanelProps) {
                     for (let i = 1; i < match.length; i++) {
                         matched = matched.replace(match[i], '<span class="text-green-600">' + match[i] + '</span>')
                     }
-                    return original.replace(match[0], '<span class="text-black font-semibold">' + matched + '</span>')
+                    return {
+                        html: original.replace(match[0], '<span class="text-black font-semibold">' + matched + '</span>'),
+                        match
+                    }
                 })
         )
     }, [props.term])
@@ -55,7 +65,10 @@ function ResultPanel(props: ResultPanelProps) {
         <div className={props.className}>
             <div className="w-full flex flex-wrap justify-center">
             {result.map(item => (
-                <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border" dangerouslySetInnerHTML={{ __html: item }}></div>
+                <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border">
+                    <div className="w-full text-xl" dangerouslySetInnerHTML={{ __html: item.html }}></div>
+                    <div className="w-full text-sm text-slate-500">{item.match.input != undefined ? (wordsMap[item.match.input as keyof typeof wordsMap] ?? '') : ''}</div>
+                </div>
             ))}
             </div>
         </div>
