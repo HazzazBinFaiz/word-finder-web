@@ -72,9 +72,9 @@ function ResultPanel(props: ResultPanelProps) {
                     </div>
                 ))}
                 {props.term.length === 0 && (
-                    <div className="w-full flex flex-col items-center opacity-60">
-                        <HomePageIllustration className="w-full h-[30rem] mt-32" />
-                        <div className="text-4xl mt-12 text-slate-700 font-semibold">Search to get result</div>
+                    <div className="w-full flex flex-col items-center justify-center opacity-60">
+                        <HomePageIllustration className="w-full h-[20rem] mt-8" />
+                        <div className="text-4xl mt-12 text-slate-800 font-semibold">Search to get result</div>
                     </div>
                 )
             }
