@@ -6,6 +6,8 @@ Find English word with least known character.
 
 ![Build and Deploy To GHPage](https://github.com/HazzazBinFaiz/word-finder-web/actions/workflows/deploy-to-github-page.yml/badge.svg)
 
+# Live
+[Check it out](https://hazzazbinfaiz.github.io/word-finder-web/)
 
 # contributing
 
