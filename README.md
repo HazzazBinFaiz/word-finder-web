@@ -6,10 +6,10 @@ Find English word with least known character.
 
 ![Build and Deploy To GHPage](https://github.com/HazzazBinFaiz/word-finder-web/actions/workflows/deploy-to-github-page.yml/badge.svg)
 
-# Live
+### Live
 [Check it out](https://hazzazbinfaiz.github.io/word-finder-web/)
 
-# contributing
+### contributing
 
 Minimum required node version: 14.x
 
@@ -23,6 +23,6 @@ Run app in development environment by runnign
 yarn dev
 ```
 
-# license
+### license
 
 MIT
