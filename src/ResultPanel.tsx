@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import HomePageIllustration from "./HomePageIllustration";
 import { HasClassName } from "./types";
-import wordsMap from './words.json'
+import wordsMap from './words'
 
 const words = Object.keys(wordsMap)
 
@@ -66,7 +66,7 @@ function ResultPanel(props: ResultPanelProps) {
         <div className={props.className}>
             <div className="w-full flex flex-wrap justify-center">
                 {result.map(item => (
-                    <div className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border">
+                    <div key={item.match.input} className="w-1/2 md:w-1/3 flex-grow p-1 text-lg text-slate-600 text-center border">
                         <div className="w-full text-xl" dangerouslySetInnerHTML={{ __html: item.html }}></div>
                         <div className="w-full text-sm text-slate-500">{item.match.input != undefined ? (wordsMap[item.match.input as keyof typeof wordsMap] ?? '') : ''}</div>
                     </div>
