@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Header from './Header'
 import ResultPanel from './ResultPanel'
-import SearchInput from './SearchInput'
 
 function App() {
 
@@ -9,7 +8,7 @@ function App() {
 
   useEffect(() => {
     document.getElementById('loading')?.remove()
-    
+
     const dataLoaded = localStorage.getItem('data-loaded')
     if (!dataLoaded) {
       setTerm('-')
