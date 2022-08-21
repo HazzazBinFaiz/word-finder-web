@@ -25,6 +25,7 @@ export default defineConfig({
       manifest: {
         name: 'Word Finder',
         short_name: 'word-finder',
+        theme_color: '#334155',
         icons: [
           {
             src: 'icon-192x192.png',
