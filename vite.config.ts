@@ -18,8 +18,8 @@ const pathReplecer = () => {
 export default defineConfig({
   plugins: [
     react(),
-    pathReplecer(),
     VitePWA({
+      base: './',
       registerType: 'autoUpdate',
       includeAssets: ['icon-192x192.png', 'icon-256x256.png', 'icon-384x384.png', 'icon-512x512.png'],
       manifest: {
@@ -48,6 +48,7 @@ export default defineConfig({
           }
         ]
       }
-    })
+    }),
+    pathReplecer(),
   ]
 })
