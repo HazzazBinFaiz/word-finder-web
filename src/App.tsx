@@ -8,15 +8,12 @@ function App() {
 
   useEffect(() => {
     document.getElementById('loading')?.remove()
-
-    const dataLoaded = localStorage.getItem('data-loaded')
-    if (!dataLoaded) {
-      setTerm('-')
-      setTimeout(() => {
-        setTerm('')
-      }, 1)
-      localStorage.setItem('data-loaded', 'true')
-    }
+    
+    setTerm('-')
+    setTimeout(() => {
+      setTerm('')
+    }, 1)
+   
   }, []);
 
   return (
